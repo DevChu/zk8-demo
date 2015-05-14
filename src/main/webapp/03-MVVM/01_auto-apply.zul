@@ -1,0 +1,6 @@
+<window>
+	<vbox viewModel="@id('vm') @init('org.zkoss.demo.zk8.mvvm.AutoVM')" >
+		<label value="@load(vm.item.name)" />
+		<button label="change" onClick="@command('cmd')"/>
+	</vbox>
+</window>

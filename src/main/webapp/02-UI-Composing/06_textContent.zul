@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk>
+	<zscript><![CDATA[
+		class Pojo {
+		   private String selected = "aaa";
+		   public void setSelected(String sel) {selected = sel;}
+		   public String getSelected() {return selected;} 
+		}
+		Pojo pojo = new Pojo();
+		pojo.setSelected("bbb");
+	]]>
+	</zscript>	
+	<div apply="org.zkoss.bind.BindComposer">
+		<x:label xmlns:x="xhtml" textContent="@load(pojo.selected)"/>
+		<label value="@load(pojo.selected)" />
+	</div>
+</zk>

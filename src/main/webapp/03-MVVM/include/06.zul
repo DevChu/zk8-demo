@@ -1,0 +1,16 @@
+<zk>
+	<zscript>
+		public class IncludeVM {
+			public Date getNow(){
+				return new Date();
+			}
+		}
+		java.util.Date date = new java.util.Date();
+	</zscript>
+	<window	viewModel="@id('vm') @init('IncludeVM')">
+		<vlayout>
+		<hlayout>Time in zscript : <label id="l1" value="${date.time}"/></hlayout>
+		<hlayout>Time in vm : <label id="l2" value="@load(vm.now.time)"/></hlayout>
+		</vlayout>
+	</window>
+</zk>

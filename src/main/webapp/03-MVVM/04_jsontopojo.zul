@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window xmlns:w="client">
+	Please click the button, you should see "myData" in the zk log console.
+	<div viewModel="@id('vm') @init('org.zkoss.demo.zk8.mvvm.JsonToPOJOVM')">
+		<button label="Click Me" w:onClick='zkbind.$(this).command("dataChange", {data:{title: "myData"}});'/> 
+	</div>
+</window>

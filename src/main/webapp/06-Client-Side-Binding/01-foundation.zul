@@ -1,0 +1,64 @@
+<?link rel="stylesheet" href="css/foundation.css" ?>
+<?link rel="stylesheet" href="css/jquery.ripple.css" ?>
+<?link rel="stylesheet" href="css/zk_foundation_demo.css.dsp" ?>
+<?script type="text/javascript" src="js/vendor/modernizr.js" ?>
+<?script type="text/javascript" src="js/jquery.ripple.js" ?>
+<?script type="text/javascript" src="js/foundation.min.js" ?>
+<zk xmlns:n="native" xmlns:x="xhtml" xmlns:sh="shadow">
+	<div id="container" viewModel="@id('vm') @init('org.zkoss.demo.zk8.client.FoundationVM')">
+		<x:button id="opensource" data-reveal-id="myModal" title="View Source"><n:i class="z-icon-external-link"></n:i></x:button>
+		<n:div class="off-canvas-wrap move-right" data-offcanvas="data-offcanvas">
+			<n:div class="inner-wrap">
+				<n:nav class="tab-bar">
+					<n:section class="left-small">
+						<n:a class="left-off-canvas-toggle menu-icon"
+							href="javascript:;">
+							<n:span></n:span>
+						</n:a>
+					</n:section>
+				</n:nav>
+				<n:aside class="left-off-canvas-menu">
+					<n:a id="logo" href="http://www.zkoss.org">
+						<n:img src="img/top_zk_logo_ext.png" alt="ZK"/>
+					</n:a>
+					<n:ul class="off-canvas-list">
+						<sh:forEach items="@init(vm.templates)">
+							<x:li sclass="@load(each eq vm.currentTemplate ? 'active' : '')">
+								<x:a onClick="@command('changeTemplate', template=each)" textContent="@load(each)" />
+								<sh:apply templateURI="@load(vm.toIcon(each))" /> 
+							</x:li>
+						</sh:forEach>
+					</n:ul>
+				</n:aside>
+				<x:section class="main-section">
+					<sh:apply templateURI="@load(vm.toLink(vm.currentTemplate))" />
+				</x:section>
+			</n:div>
+			<n:div id="myModal" class="reveal-modal" data-reveal="data-reveal">
+				<x:h3 textContent="@load((vm.currentTemplate += ' Template'))"/>
+				<n:h5>Copy the HTML and paste it between your ZK page. </n:h5>
+				<n:a class="close-reveal-modal">&#215;</n:a>
+				<x:pre textContent="@load(vm.toSource(vm.currentTemplate))"/>
+			</n:div>
+		</n:div>
+	</div>
+	<script>zk.afterMount(function () {
+		// init foundation
+		$(document).foundation();
+		
+		// init repple animation
+		$('[data-ripple]').ripple({ color: 'rgba(0,0,0,.25)' });
+		
+		var binder = zkbind.$('$container');
+		binder.after('changeTemplate', function () {
+			var elem = $('.off-canvas-wrap.move-right');
+			if (elem.length)
+				elem.removeClass('move-right');
+			
+			// init the main content foundation
+			setTimeout(function () {
+				$(document).foundation();
+			}, 150);
+		});
+	});</script>
+</zk>

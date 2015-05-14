@@ -1,0 +1,6 @@
+<zk>
+	<datebox id="db" showTodayLink="true" ></datebox>
+	<calendar id="cal" showTodayLink="true"></calendar>
+	<button onClick="db.setShowTodayLink(!db.getShowTodayLink())">toggle datebox today button</button>
+	<button onClick="cal.setShowTodayLink(!cal.getShowTodayLink())">toggle calendar today button</button>
+</zk>

@@ -1,0 +1,72 @@
+<?page contentType="text/html;charset=UTF-8"?>
+<zk>
+	<div>
+		<window title="ZK MVVM Children Binding" border="normal" viewModel="@id('vm') @init('org.zkoss.demo.zk8.mvvm.ChildrenBindingVM')">
+			<div>
+				<label value="Origin model (@load)" />
+				<listbox model="@load(vm.model_l)">
+					<template name="model">
+						<listitem>
+							<listcell label="@load(each.id)"/>
+           					<listcell label="@load(each.name)"/>
+						</listitem>
+					</template>
+				</listbox>
+			</div>
+			<separator />
+			<hlayout>
+				<div hflex="1">
+					<label value="Children Binding (ListModelList)" />
+					<vlayout children="@load(vm.model_l)">
+						<template name="children" var="nodem1">
+							<hlayout>
+								<label value="@load(nodem1.id)"/>
+								<label value=" - "/>
+								<label value="@load(nodem1.name)"/>
+							</hlayout>
+						</template>
+					</vlayout>
+				</div>
+				<div hflex="1">
+					<label value="Children Binding (ListModelArray)" />
+					<vlayout children="@load(vm.model_a)">
+						<template name="children">
+							<label value="@load(each)" />
+						</template>
+					</vlayout>
+				</div>
+			</hlayout>
+			<separator />
+			<hlayout>
+				<div hflex="1">
+					<label value="Children model - ListModelMap" />
+					<vlayout children="@load(vm.model_m)">
+						<template name="children">
+							<hlayout>
+								<label value="@load(each.key)"/>
+								<label value=" - "/>
+								<label value="@load(each.value.name)"/>
+							</hlayout>
+						</template>
+					</vlayout>
+				</div>
+				<div hflex="1">
+					<label value="Children model - ListModelSet" />
+					<vlayout children="@load(vm.model_s)">
+						<template name="children">
+							<hlayout>
+								<label value="@load(each.id)"/>
+								<label value=" - "/>
+								<label value="@load(each.name)"/>
+							</hlayout>
+						</template>
+					</vlayout>
+				</div>
+			</hlayout>
+			<button id="change_model" label="change_model(all)" onClick="@command('change_model')" />
+			<button id="add" label="add(List, Map, Set)" onClick="@command('add')" />
+			<button id="update" label="update(List, Map, Array)" onClick="@command('update')" />
+			<button id="remove" label="remove(List, Map, Set)" onClick="@command('remove')" />
+		</window>
+	</div>
+</zk>

@@ -1,0 +1,6 @@
+<zk>
+	<button id="trigger" />
+	<div fulfill="trigger.onClick">
+		<include apply="org.zkoss.bind.BindComposer" src="@load('./include/exception.zul')"/>
+	</div>
+</zk>

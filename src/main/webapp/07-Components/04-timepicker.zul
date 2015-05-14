@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk>
+	<vlayout viewModel='@id("vm") @init("org.zkoss.demo.zk8.components.TimepickerVM")'>
+		<label value="Old components" />
+		<combobox>
+			<comboitem label="Simple and Rich" />
+			<comboitem label="Cool!" />
+			<comboitem label="Thumbs Up!" />			
+		</combobox>
+		<timebox format="medium" value="@bind(vm.time)" width="200px"/>
+		<datebox value="@bind(vm.time)"/>
+		<label value="New component: timepicker" />
+		<hlayout>
+			<label value="HH:mm" />
+			<timepicker format="medium" value="@bind(vm.time)" width="200px"/>
+		</hlayout>
+		<hlayout>
+			<label value="HH:mm a" />
+			<timepicker format="HH:mm a" value="@bind(vm.time)" min="@load(vm.min)" width="200px" />
+		</hlayout>
+		<hlayout>
+			<label value="HH:mm:ss" />
+			<timepicker format="HH:mm:ss" value="@bind(vm.time)" min="@load(vm.min)" max="@load(vm.max)" width="200px" interval="@load(vm.interval)" />
+		</hlayout>
+		<hlayout>
+			<label value="HH:mm:ss a" />
+			<timepicker format="HH:mm:ss a" value="@bind(vm.time)" width="200px" interval="@load(vm.interval)" />
+		</hlayout>
+		<hlayout>
+			<label value="hh:mm:ss a" />
+			<timepicker format="hh:mm:ss a" value="@bind(vm.time)" width="200px" interval="@load(vm.interval)" />
+		</hlayout>
+		<button label="change min time" onClick="@command('change_min')" />
+		<button label="change max time" onClick="@command('change_max')" />
+		<button label="change interval" onClick="@command('change_interval')" />
+	</vlayout>
+</zk>

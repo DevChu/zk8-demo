@@ -1,0 +1,7 @@
+<window viewModel="@id('vm') @init('org.zkoss.demo.zk8.mvvm.SmartNotifyChangeVM')" title="SmartNotifyChange">
+	<include src="@load(vm.url) @converter(vm.converter)"/>
+	<button label="reload-empty (NotifyChange)" onClick="@command('reload1')"/>
+	<button label="reload-empty (SmartNotifyChange)" onClick="@command('reload2')"/>
+	<button label="reload-changed (NotifyChange)" onClick="@command('reload3')"/>
+	<button label="reload-changed (SmartNotifyChange)" onClick="@command('reload4')"/>
+</window>

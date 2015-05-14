@@ -1,0 +1,7 @@
+<zk>
+	<zscript>
+		//throw new org.zkoss.demo.zk8.error.MyEx("My Exception");
+		throw new RuntimeException("not allowed");
+		//throw anew UiException("ui");
+	</zscript>
+</zk>

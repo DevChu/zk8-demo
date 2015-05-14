@@ -1,0 +1,6 @@
+<window>
+<div hflex="1" width="100px"></div>
+<!-- <div width="200px" hflex="1" ></div> -->
+<!-- <div vflex="1" height="100px"></div> -->
+<!-- <div height="200px" vflex="1" ></div> -->
+</window>

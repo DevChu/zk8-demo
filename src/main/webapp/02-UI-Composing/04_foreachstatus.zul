@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns:n="native">
+	<n:h4>Case 1: forEach="one, two, three, four"</n:h4>
+	<zscript>
+		items = Arrays.asList(new Object[] { "one", "two", "three", "four" });
+	</zscript>
+	<div style="border:1px solid blue">
+		<div forEach="${items}">
+			${each} Index: ${forEachStatus.index} Count:
+			${forEachStatus.count} First: ${forEachStatus.first} Last:
+			${forEachStatus.last}
+		</div>
+	</div>
+	<n:h4>Case 2: forEach="one, two, three, four" forEachStep="3"</n:h4>
+	<div style="border:1px solid blue">
+		<div forEach="${items}" forEachStep="3">
+			${each} Index: ${forEachStatus.index} Count:
+			${forEachStatus.count} First: ${forEachStatus.first} Last:
+			${forEachStatus.last}
+		</div>
+	</div>
+	<n:h4>Case 3: forEach="one, two, three, four" forEachBegin="1" forEachStep="3"
+	</n:h4>
+	<div style="border:1px solid blue">
+		<div forEach="${items}" forEachBegin="1" forEachStep="3">
+			${each} Index: ${forEachStatus.index} Count:
+			${forEachStatus.count} First: ${forEachStatus.first} Last:
+			${forEachStatus.last}
+		</div>
+	</div>
+</zk>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk>
+	<x:img xmlns:x="xhtml" src="~./img/spacer.gif" xmlns:c="client" c:onBind='zk.log(this.$n().src)'/>
+</zk>

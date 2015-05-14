@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk>
+	<library-property>
+		<name>preserve-all-blank</name>
+		<value>true</value>
+	</library-property>	
+	<error-page>
+    	<exception-type>java.lang.RuntimeException</exception-type>    
+    	<location>/08-Error-Handling/include/error.zul</location>    
+	</error-page>
+</zk>

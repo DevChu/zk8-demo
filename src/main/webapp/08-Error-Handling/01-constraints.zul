@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<vlayout>
+	<label>textbox</label>
+	<textbox constraint="no empty: no empty, /.+@.+\.[a-z]+/: email only"></textbox>
+	<label>intbox</label>
+	<intbox constraint="no negative: no neg, no positive: no pos"></intbox>
+	<intbox constraint="no zero: no zero, no positive: no pos, no empty: no empty"></intbox>
+	<label>datebox</label>
+	<datebox constraint="no empty: no empty, no future: no future"/>
+	<datebox constraint="after 20150416: no before, before 20150420: no after" format="yyyyMMdd"/>
+	<datebox constraint="between 20150416 and 20150420: between , no empty: no empty" format="yyyyMMdd"/>
+	<label>combobox</label>
+	<combobox constraint="strict: strict, no empty: no empty">
+	    <comboitem label="1"/>
+	    <comboitem label="2"/>
+	    <comboitem label="3"/>
+	</combobox>
+	</vlayout>
+</window>

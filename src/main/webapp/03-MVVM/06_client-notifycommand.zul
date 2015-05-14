@@ -1,0 +1,23 @@
+<window id="w" viewModel="@id('vm') @init('org.zkoss.demo.zk8.mvvm.ClientNotifyCommandVM')" xmlns:n="native">
+       <n:div id="display1"></n:div>
+       <n:div id="display2"></n:div>
+       <n:script>
+       	zk.afterMount(function() {
+			var binder = zkbind.$('$display1');
+			// the event handler of after 'doChange' from server
+			binder.after('doChange', function() {
+				alert("after doChange1");
+			});
+			var binder = zkbind.$('$display2');
+			// the event handler of after 'doChange' from server
+			binder.after('updateData', function() {
+				alert("after doChange2");
+			});
+		});
+       </n:script>
+       <label value="@load(vm.count)" />
+       <separator />
+       <button label="change" onClick="@command('doChange')" />
+       <separator />
+       <label value="@load(vm.data)" />
+</window>
